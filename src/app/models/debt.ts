@@ -1,6 +1,6 @@
 export interface Debt {
     name: string;
     amount: number;
-    type: boolean;
+    type: string;
     details: string;
 }

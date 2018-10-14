@@ -1,3 +1,25 @@
-<p>
-  add-debt works!
-</p>
+<div>
+    <h2><b>New Debt</b></h2>
+    <form (ngSubmit)="onAddDebt(formNew)" #formNew="ngForm">
+        <div>
+            <label for="inputName">Name: </label>
+            <input [(ngModel)]="debt.name" type="text" id="inputName" name="name" placeholder="Enter name" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label for="inputAmount">Amount: </label>
+            <input [(ngModel)]="debt.amount" type="number" id="inputAmount" name="amount" placeholder="Enter amount" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label for="inputDetails">Details: </label>
+            <textarea [(ngModel)]="debt.details" name="details" id="inputDetails" cols="30" rows="10" [ngModelOptions]="{standalone: true}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="type">Type: </label>
+            <select class="form-control" id="type" required [(ngModel)]="debt.type" name="type">
+                <option *ngFor="let type of types" [value]="type">{{type}}</option>
+            </select>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
