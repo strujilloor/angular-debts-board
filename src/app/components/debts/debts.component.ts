@@ -9,9 +9,10 @@ import {DebtId} from '../../models/debtId';
 })
 export class DebtsComponent implements OnInit {
   debts: DebtId[];
-
-  constructor(private debtService: DebtService) { }
   selectedDebt: DebtId;
+
+  constructor(private debtService: DebtService) {
+  }
 
   ngOnInit() {
     this.getDebts();
@@ -19,8 +20,12 @@ export class DebtsComponent implements OnInit {
   getDebts(): void {
     this.debtService.getDebts().subscribe(debts => this.debts = debts);
   }
-  onSelect(debt: DebtId): void{
+  onSelect(debt: DebtId): void {
     this.selectedDebt = debt;
+  }
+  onDelete(debt: DebtId): void {
+    this.debtService.deleteDebt(debt);
+    this.selectedDebt = null;
   }
 
 }
