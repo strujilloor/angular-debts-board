@@ -1,5 +1,14 @@
 <div>
-  <ul *ngFor="let debt of debts">
-    <li><b>id:</b> {{debt.id}} <b>name:</b> {{debt.name}} <b>amount:</b> {{debt.amount}} <b>type:</b> {{debt.type}}</li>
+  <ul *ngFor="let debt of debts" class="list-group">
+    <li class="list-group-item list-group-item-action" (click)="onSelect(debt)" [class.active]="debt === selectedDebt">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{debt.name}}</h5>
+        <small>{{debt.type}} $ {{debt.amount}}</small>
+      </div>
+    </li>
   </ul>
+</div>
+
+<div>
+  <app-debt-detail [debt]="selectedDebt"></app-debt-detail>
 </div>

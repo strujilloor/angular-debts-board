@@ -1,3 +1,24 @@
-<p>
-  debt-detail works!
-</p>
+<div *ngIf="debt">
+  <h2><b>Debt Details</b></h2>
+  <form (ngSubmit)="onUpdateDebt(formNew)" #formNew="ngForm">
+    <div class="form-group">
+      <label for="inputName">Name: </label>
+      <input class="form-control" [(ngModel)]="debt.name" type="text" id="inputName" name="name" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+      <label for="inputAmount">Amount: </label>
+      <input class="form-control" [(ngModel)]="debt.amount" type="number" id="inputAmount" name="amount" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+      <label for="inputDetails">Details: </label>
+      <textarea class="form-control" [(ngModel)]="debt.details" name="details" id="inputDetails" cols="30" rows="6" [ngModelOptions]="{standalone: true}"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="type">Type: </label>
+      <select class="form-control" id="type" required [(ngModel)]="debt.type" name="type">
+        <option [value]="debt.type">{{debt.type}}</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>
