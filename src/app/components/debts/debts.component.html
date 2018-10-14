@@ -1,3 +1,5 @@
-<p>
-  debts works!
-</p>
+<div>
+  <ul *ngFor="let debt of debts">
+    <li><b>id:</b> {{debt.id}} <b>name:</b> {{debt.name}} <b>amount:</b> {{debt.amount}}</li>
+  </ul>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DebtService} from '../../services/debt.service';
+import {DebtId} from '../../models/debtId';
 
 @Component({
   selector: 'app-debts',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class DebtsComponent implements OnInit {
+  debts: DebtId[];
 
-  constructor() { }
+  constructor(private debtService: DebtService) { }
 
   ngOnInit() {
+    this.getDebts();
+  }
+  getDebts(): void {
+    this.debtService.getDebts().subscribe(debts => this.debts = debts);
   }
 
 }
