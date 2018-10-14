@@ -6,6 +6,9 @@ import { DebtsComponent } from './components/debts/debts.component';
 import { DebtDetailComponent } from './components/debt-detail/debt-detail.component';
 import { AddDebtComponent } from './components/add-debt/add-debt.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +17,8 @@ import { AddDebtComponent } from './components/add-debt/add-debt.component';
     AddDebtComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
